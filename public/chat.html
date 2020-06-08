@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    
+    <link rel="img" href="img/favicon.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.min.css">
+</head>
+<body>
+
+    <div class="chat">
+        <div id= "sidebar" class="chat__sidebar">
+
+
+        </div>
+        <div class="chai__main">
+            <div class="chat__messages" id="meessages">
+
+
+                <div class="compose">
+                    <form class="message-form" id="message-form" method="GET" autocomplete="off">
+                        <input name="messages" class="input" placeholder="Type Your message">
+                        <button class="first ">Click me</button>
+                    </form> 
+
+                    <button class="send-location">Send Location</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script id="message-template" type="text/html">
+        <div class="message">
+            <p>  
+                <span class="message__name">{{username}}</span>
+                <span class="message__meta">{{CreatedAt}}</span>
+            </p>
+            <p>{{ message }}</p>
+        </div>
+    </script>
+
+
+    <script id="location-message-template" type="text/html">
+        <div class="message">
+            <p>  
+                <span class="message__name">{{username}}</span>
+                <span class="message__meta">{{CreatedAt}}</span>
+            </p>
+            <p><a href="{{url}}" target="_blank ">My Current Location </p>
+        </div>
+    </script>
+    <button class="button">Send</button>
+
+    <script id="sidebar-template" type="text/html">
+        <h2 class="roomTitle">{{room}}</h2>
+        <h3 class="list">Users</h3>
+        <ul class="users">
+            {{#users}}
+
+                <li>{{username}} </li>
+            {{/users}}
+        </ul>
+    
+    
+    </script>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+</html>
